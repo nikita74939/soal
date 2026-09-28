@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paket Soal PU - Penalaran Umum</title>
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['\\(','\\)']],
+      displayMath: [['\\[','\\]'], ['$$','$$']],
+      tags: 'none'
+    },
+    svg: { fontCache: 'global' }
+  };
+</script>
+<script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    font-family: "Times New Roman", Times, Georgia, serif;
+    background: #d9d9d9;
+    color: #000;
+    line-height: 1.55;
+    margin: 0;
+    padding: 30px 12px;
+    font-size: 15px;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+  .page {
+    background: #fff;
+    width: 100%;
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 55px 65px 70px;
+    box-shadow: 0 2px 12px rgba(0,0,0,.25);
+  }
+  .doc-header {
+    text-align: center;
+    border-bottom: 3px double #000;
+    padding-bottom: 14px;
+    margin-bottom: 22px;
+  }
+  .doc-header h1 {
+    font-size: 1.35rem;
+    letter-spacing: 1px;
+    margin: 0 0 4px;
+    text-transform: uppercase;
+  }
+  .doc-header .sub {
+    font-size: .95rem;
+    font-style: italic;
+    margin: 0;
+  }
+  .peraturan {
+    border: 2px solid #000;
+    padding: 14px 22px 16px;
+    margin: 0 0 28px;
+    background: #fafafa;
+  }
+  .peraturan h2 {
+    font-size: 1rem;
+    margin: 0 0 8px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    border-bottom: 1px solid #000;
+    padding-bottom: 6px;
+  }
+  .peraturan ol {
+    margin: 0;
+    padding-left: 22px;
+    font-size: .9rem;
+  }
+  .peraturan li { margin-bottom: 5px; }
+  .peraturan .penting {
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  .soal {
+    position: relative;
+    margin: 0 0 34px;
+    padding-left: 34px;
+    page-break-inside: avoid;
+  }
+  .soal-head {
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: 0;
+  }
+  .soal-no {
+    font-weight: bold;
+    font-size: 1rem;
+  }
+  .soal-body { padding-left: 0; }
+  .soal-body p { margin: 6px 0; }
+  .opsi {
+    list-style: none;
+    padding-left: 0;
+    margin: 8px 0 0;
+  }
+  .opsi li {
+    margin-bottom: 3px;
+    padding-left: 4px;
+  }
+  .divider {
+    border: none;
+    border-top: 1px dashed #999;
+    margin: 0 0 26px;
+  }
+  .figure-row {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    margin: 14px 0;
+  }
+  .figure-row figure { margin: 0; }
+  svg text {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 15px;
+    fill: #000;
+  }
+  .chart-title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.02rem;
+    margin: 0 0 16px;
+  }
+  .barchart { margin: 12px 0 18px; }
+  .bar-row {
+    display: grid;
+    grid-template-columns: 195px 1fr 58px;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 7px;
+    font-size: .85rem;
+  }
+  .bar-row .lbl { text-align: right; }
+  .bar-track { background: #ececec; height: 20px; }
+  .bar-fill { background: #2e7d32; height: 20px; }
+  .bar-row .val { text-align: left; color: #333; }
+  .legend {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: .82rem;
+    margin-top: 6px;
+  }
+  .legend .sw { width: 14px; height: 14px; background: #2e7d32; display: inline-block; }
+  footer {
+    text-align: center;
+    font-size: .8rem;
+    color: #555;
+    margin-top: 30px;
+    border-top: 1px solid #000;
+    padding-top: 10px;
+  }
+  mjx-container[display="true"] { margin: 10px 0 !important; }
+  @media print {
+    body { background: #fff; padding: 0; }
+    .page { box-shadow: none; max-width: 100%; padding: 20mm 18mm; }
+  }
+  @media (max-width: 620px) {
+    body { padding: 8px 5px; }
+    .page { padding: 26px 18px 36px; box-shadow: 0 1px 6px rgba(0,0,0,.2); }
+    .doc-header h1 { font-size: 1.15rem; }
+    .soal { padding-left: 30px; }
+    .figure-row { gap: 18px; }
+    .bar-row { grid-template-columns: 128px 1fr 44px; font-size: .78rem; }
+    .peraturan { padding: 12px 16px 14px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="doc-header">
+    <h1>Paket Soal</h1>
+    <p class="sub">Penalaran Umum (PU)</p>
+  </div>
+
+  <div class="peraturan">
+    <h2>Peraturan Pengerjaan</h2>
+    <ol>
+      <li>Kerjakan dengan menuliskan langkah-langkah, bukan hanya jawaban akhir.</li>
+      <li class="penting">Dilarang mengerjakan menggunakan AI (ChatGPT, Gemini, dan sejenisnya).</li>
+      <li>Dilarang mencari jawaban di internet atau meminta bantuan orang lain saat mengerjakan.</li>
+      <li>Kerjakan secara mandiri, jujur, dan teliti.</li>
+    </ol>
+  </div>
+
+  <div class="soal">
+    <div class="soal-head"><span class="soal-no">1.</span></div>
+    <div class="soal-body">
+      <p>\[ x,\ 9,\ 36,\ 13,\ 40,\ 17,\ y \]</p>
+      <p>Nilai yang tepat menggantikan \(x\) dan \(y\) adalah&hellip;</p>
+      <ul class="opsi">
+        <li>(A) \(-18\) dan \(40\)</li>
+        <li>(B) \(-23\) dan \(44\)</li>
+        <li>(C) \(27\) dan \(51\)</li>
+        <li>(D) \(32\) dan \(44\)</li>
+        <li>(E) \(32\) dan \(-10\)</li>
+      </ul>
+    </div>
+  </div>
+  <hr class="divider">
+
+  <div class="soal">
+    <div class="soal-head"><span class="soal-no">2.</span></div>
+    <div class="soal-body">
+      <p>\[ 2,\ 8,\ 9,\ 27,\ 29,\ 58,\ 61,\ x \]</p>
+      <p>Nilai yang tepat menggantikan \(x\) adalah&hellip;</p>
+      <ul class="opsi">
+        <li>(A) \(61\)</li>
+        <li>(B) \(62\)</li>
+        <li>(C) \(63\)</li>
+        <li>(D) \(122\)</li>
+        <li>(E) \(183\)</li>
+      </ul>
+    </div>
+  </div>
+  <hr class="divider">
+
+  <div class="soal">
+    <div class="soal-head"><span class="soal-no">3.</span></div>
+    <div class="soal-body">
+      <p>\[ x,\ 12,\ 2,\ 8,\ -2,\ 4,\ y \]</p>
+      <p>Nilai yang tepat menggantikan \(x\) dan \(y\) adalah&hellip;</p>
+      <ul class="opsi">
+        <li>(A) \(2\) dan \(-2\)</li>
+        <li>(B) \(6\) dan \(-6\)</li>
+        <li>(C) \(6\) dan \(14\)</li>
+        <li>(D) \(18\) dan \(-6\)</li>
+        <li>(E) \(22\) dan \(10\)</li>
+      </ul>
+    </div>
+  </div>
+  <hr class="divider">
+
+  <div class="soal">
+    <div class="soal-head"><span class="soal-no">4.</span></div>
+    <div class="soal-body">
+      <p>\[ 3,\ 12,\ 7,\ 21,\ 17,\ 34,\ 31,\ x \]</p>
+      <p>Nilai yang tepat menggantikan \(x\) adalah&hellip;</p>
+      <ul class="opsi">
+        <li>(A) \(28\)</li>
+        <li>(B) \(29\)</li>
+        <li>(C) \(31\)</li>
+        <li>(D) \(35\)</li>
+        <li>(E) \(62\)</li>
+      </ul>
+    </div>
+  </div>
+  <hr class="divider">
+
+  <div class="soal">
+    <div class="soal-head"><span class="soal-no">5.</span></div>
+    <div class="soal-body">
+      <p>Sebuah toko baju yang buka enam hari dalam seminggu, menyediakan baju seragam pramuka dalam waktu lima hari berturut-turut sebanyak \(7\), \(9\), \(13\), \(15\), dan \(19\) buah. Dalam kurun waktu tersebut baju seragam terjual sebanyak \(5\), \(8\), \(11\), \(14\), dan \(17\) buah. Jika tren perubahan tersebut bersifat konstan, berapa buah seragam terjual pada hari ke-6?</p>
+      <ul class="opsi">
+        <li>(A) \(18\)</li>
+        <li>(B) \(19\)</li>
+        <li>(C) \(20\)</li>
+        <li>(D) \(21\)</li>
+        <li>(E) \(22\)</li>
+      </ul>
+    </div>
+  </div>
+  <hr class="divider">
+
+  <div class="soal">
+    <div class="soal-head"><span class="soal-no">6.</span></div>
+    <div class="soal-body">
+      <div class="figure-row">
+        <figure>
+          <svg viewBox="0 0 200 180" width="190" height="171" role="img">
+            <polygon points="30,140 170,140 100,30" fill="none" stroke="#000" stroke-width="1.5"/>
+            <text x="100" y="18" text-anchor="middle" font-weight="bold">P</text>
+            <text x="52" y="92" text-anchor="middle">6</text>
+            <text x="148" y="92" text-anchor="middle">8</text>
+            <text x="100" y="162" text-anchor="middle">5</text>
+            <text x="100" y="105" text-anchor="middle">22</text>
+          </svg>
+        </figure>
+        <figure>
+          <svg viewBox="0 0 200 180" width="190" height="171" role="img">
+            <polygon points="30,140 170,140 100,30" fill="none" stroke="#000" stroke-width="1.5"/>
+            <text x="100" y="18" text-anchor="middle" font-weight="bold">Q</text>
+            <text x="52" y="92" text-anchor="middle">7</text>
+            <text x="148" y="92" text-anchor="middle">5</text>
+            <text x="100" y="162" text-anchor="middle">8</text>
+            <text x="100" y="105" text-anchor="middle">?</text>
+          </svg>
+        </figure>
+      </div>
+      <p>Nilai \(22\) dalam segitiga \(P\) adalah hasil operasi aritmetik semua bilangan di luar segitiga \(P\). Dengan menggunakan pola operasi aritmetik yang sama, nilai dalam segitiga \(Q\) yang paling tepat adalah&hellip;</p>
+      <ul class="opsi">
+        <li>(A) \(27\)</li>
+        <li>(B) \(33\)</li>
+        <li>(C) \(43\)</li>
+        <li>(D) \(47\)</li>
+        <li>(E) \(51\)</li>
+      </ul>
+    </div>
+  </div>
+  <hr class="divider">
+
+  <div class="soal">
+    <div class="soal-head"><span class="soal-no">7.</span></div>
+    <div class="soal-body">
+      <div class="figure-row">
+        <figure>
+          <svg viewBox="0 0 200 200" width="170" height="170" role="img">
+            <rect x="45" y="48" width="110" height="110" fill="none" stroke="#000" stroke-width="1.5"/>
+            <text x="100" y="18" text-anchor="middle" font-weight="bold">A</text>
+            <text x="100" y="40" text-anchor="middle">5</text>
+            <text x="35" y="108" text-anchor="end">3</text>
+            <text x="165" y="108" text-anchor="start">4</text>
+            <text x="100" y="180" text-anchor="middle">6</text>
+            <text x="100" y="108" text-anchor="middle">38</text>
+          </svg>
+        </figure>
+        <figure>
+          <svg viewBox="0 0 200 200" width="170" height="170" role="img">
+            <rect x="45" y="48" width="110" height="110" fill="none" stroke="#000" stroke-width="1.5"/>
+            <text x="100" y="18" text-anchor="middle" font-weight="bold">B</text>
+            <text x="100" y="40" text-anchor="middle">3</text>
+            <text x="35" y="108" text-anchor="end">4</text>
+            <text x="165" y="108" text-anchor="start">2</text>
+            <text x="100" y="180" text-anchor="middle">5</text>
+            <text x="100" y="108" text-anchor="middle">?</text>
+          </svg>
+        </figure>
+      </div>
+      <p>Nilai \(38\) dalam segiempat \(A\) adalah hasil operasi aritmetik semua bilangan di luar segiempat \(A\). Dengan menggunakan pola operasi aritmetik yang sama, nilai dalam segiempat \(B\) yang paling tepat adalah&hellip;</p>
+      <ul class="opsi">
+        <li>(A) \(13\)</li>
+        <li>(B) \(14\)</li>
+        <li>(C) \(22\)</li>
+        <li>(D) \(23\)</li>
+        <li>(E) \(26\)</li>
+      </ul>
+    </div>
+  </div>
+  <hr class="divider">
+
+  <div class="soal">
+    <div class="soal-head"><span class="soal-no">8.</span></div>
+    <div class="soal-body">
+      <p>Pendapatan \(A\) lebih rendah \(30\%\) daripada pendapatan \(B\). Berapa pendapatan \(B\) jika pendapatan \(A\) adalah Rp2.100.000,00?</p>
+      <ul class="opsi">
+        <li>(A) Rp900.000,00</li>
+        <li>(B) Rp1.470.000,00</li>
+        <li>(C) Rp2.370.000,00</li>
+        <li>(D) Rp2.570.000,00</li>
+        <li>(E) Rp3.000.000,00</li>
+      </ul>
+    </div>
+  </div>
+  <hr class="divider">
+
+  <div class="soal">
+    <div class="soal-head"><span class="soal-no">9.</span></div>
+    <div class="soal-body">
+      <p>Sebuah toko pecah belah memberikan diskon \(30\%\) untuk semua jenis perabot. Jika harga selusin piring setelah diskon adalah Rp105.000,00, berapakah harga selusin piring tersebut sebelum mendapatkan diskon?</p>
+      <ul class="opsi">
+        <li>(A) Rp96.000,00</li>
+        <li>(B) Rp150.000,00</li>
+        <li>(C) Rp350.000,00</li>
+        <li>(D) Rp600.000,00</li>
+        <li>(E) Rp720.000,00</li>
+      </ul>
+    </div>
+  </div>
+  <hr class="divider">
+
+  <div class="soal">
+    <div class="soal-head"><span class="soal-no">10.</span></div>
+    <div class="soal-body">
+      <p>Sebuah restoran menawarkan diskon \(20\%\) untuk semua jenis makanan. Jika harga makanan setelah diskon adalah Rp240.000,00, berapakah harga makanan tersebut sebelum mendapatkan diskon?</p>
+      <ul class="opsi">
+        <li>(A) Rp300.000,00</li>
+        <li>(B) Rp400.000,00</li>
+        <li>(C) Rp640.000,00</li>
+        <li>(D) Rp720.000,00</li>
+        <li>(E) Rp1.200.000,00</li>
+      </ul>
+    </div>
+  </div>
+  <hr class="divider">
+
+  <div class="soal">
+    <div class="soal-head"><span class="soal-no">11.</span></div>
+    <div class="soal-body">
+      <p>Apabila tidak mengikuti latihan rutin setiap minggu, anggota UKM tidak diizinkan mengikuti pementasan teater. Aturan ini berlaku bagi anggota baru UKM Seni.</p>
+      <p>Manakah kesimpulan berikut yang <b>BENAR</b>?</p>
+      <ul class="opsi">
+        <li>(A) Anggota baru UKM bisa mengikuti latihan rutin setiap minggu untuk mendukung pementasan teater.</li>
+        <li>(B) Anggota baru UKM Seni tidak diizinkan ikut dalam pementasan teater jika tidak mengikuti latihan rutin setiap minggu.</li>
+        <li>(C) Semua anggota UKM diizinkan mengikuti pementasan teater jika mengikuti latihan rutin setiap minggu.</li>
+        <li>(D) Sebagian anggota UKM Seni diizinkan ikut dalam pementasan teater meskipun tidak mengikuti latihan rutin setiap minggu.</li>
+        <li>(E) Semua anggota UKM melakukan latihan rutin setiap minggu, kecuali untuk anggota baru.</li>
+      </ul>
+    </div>
+  </div>
+  <hr class="divider">
+
+  <div class="soal">
+    <div class="soal-head"><span class="soal-no">12.</span></div>
+    <div class="soal-body">
+      <p>Peneliti di Lembaga AWB yang mendapat penghargaan produktif menulis buku. Sebagian dari mereka lebih sering mengikuti seminar internasional dibandingkan peneliti lain.</p>
+      <p>Berdasarkan informasi di atas, manakah simpulan yang <b>PALING TEPAT</b>?</p>
+      <ul class="opsi">
+        <li>(A) Peneliti di Lembaga AWB yang mendapat penghargaan produktif menulis buku dan sering mengikuti seminar internasional dibandingkan peneliti lain.</li>
+        <li>(B) Sebagian peneliti yang tidak sering mengikuti seminar internasional dibandingkan peneliti lain bukan peneliti di Lembaga AWB.</li>
+        <li>(C) Beberapa peneliti di Lembaga AWB produktif menulis buku, namun tidak sering mengikuti seminar internasional dibandingkan peneliti lain.</li>
+      </ul>
+    </div>
+  </div>
+  <hr class="divider">
+
+  <div class="soal">
+    <div class="soal-head"><span class="soal-no">13.</span></div>
+    <div class="soal-body">
+      <p>\(X\) memenangkan lomba lari apabila tidak mengalami cedera kaki yang parah. Apabila mengikuti turnamen lari marathon, \(X\) tidak masuk sekolah selama sebulan. Apabila \(X\) tidak memenangkan lomba lari atau masuk sekolah selama sebulan, manakah simpulan berikut yang <b>BENAR</b>?</p>
+      <ul class="opsi">
+        <li>(A) \(X\) mengalami cedera kaki yang parah atau \(X\) tidak mengikuti turnamen lari marathon.</li>
+        <li>(B) \(X\) tidak mengalami cedera kaki yang parah, tetapi \(X\) mengikuti turnamen lari marathon.</li>
+        <li>(C) \(X\) tidak mengalami cedera kaki yang parah atau \(X\) mengikuti turnamen lari marathon.</li>
+        <li>(D) \(X\) mengalami cedera kaki yang parah dan \(X\) tidak mengikuti turnamen lari marathon.</li>
+        <li>(E) \(X\) mengalami cedera kaki yang parah dan \(X\) mengikuti turnamen lari marathon.</li>
+      </ul>
+    </div>
+  </div>
+  <hr class="divider">
+
+  <div class="soal">
+    <div class="soal-head"><span class="soal-no">14.</span></div>
+    <div class="soal-body">
+      <p>Harga buah \(M\) sangat mahal karena petani buah \(M\) gagal panen. Biasanya, pada musim kemarau, petani buah \(M\) panen raya.</p>
+      <p>Berdasarkan pernyataan di atas, manakah simpulan yang <b>BENAR</b>?</p>
+      <ul class="opsi">
+        <li>(A) Harga buah \(M\) murah saat panen raya.</li>
+        <li>(B) Saat ini akan memasuki musim kemarau.</li>
+        <li>(C) Saat ini masa panen raya bagi petani buah \(M\).</li>
+        <li>(D) Harga buah \(M\) murah saat bukan musim kemarau.</li>
+        <li>(E) Saat ini bukan musim kemarau.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="soal" style="margin-top:44px;">
+    <div class="soal-head"><span class="soal-no"></span></div>
+    <div class="soal-body">
+      <p class="chart-title">Jumlah Penggunaan Smartphone di Indonesia<br>Berdasarkan Pulau</p>
+      <div class="barchart">
+        <div class="bar-row"><span class="lbl">Jawa</span><span class="bar-track"><span class="bar-fill" style="width:86.6%; display:block;"></span></span><span class="val">86,6</span></div>
+        <div class="bar-row"><span class="lbl">Sumatera</span><span class="bar-track"><span class="bar-fill" style="width:84.14%; display:block;"></span></span><span class="val">84,14</span></div>
+        <div class="bar-row"><span class="lbl">Kalimantan</span><span class="bar-track"><span class="bar-fill" style="width:52.12%; display:block;"></span></span><span class="val">52,12</span></div>
+        <div class="bar-row"><span class="lbl">Bali dan Nusa Tenggara</span><span class="bar-track"><span class="bar-fill" style="width:45.24%; display:block;"></span></span><span class="val">45,24</span></div>
+        <div class="bar-row"><span class="lbl">Sulawesi</span><span class="bar-track"><span class="bar-fill" style="width:43.82%; display:block;"></span></span><span class="val">43,82</span></div>
+        <div class="bar-row"><span class="lbl">Maluku dan Papua</span><span class="bar-track"><span class="bar-fill" style="width:27.68%; display:block;"></span></span><span class="val">27,68</span></div>
+      </div>
+      <div class="legend"><span class="sw"></span> Persentase</div>
+    </div>
+  </div>
+
+  <div class="soal">
+    <div class="soal-head"><span class="soal-no">15.</span></div>
+    <div class="soal-body">
+      <p>Berdasarkan data tersebut, jika penduduk Pulau Kalimantan pada tahun 2022 sekitar \(16\) juta penduduk, berapakah yang sudah menggunakan Smartphone di Pulau Kalimantan?</p>
+      <ul class="opsi">
+        <li>(A) \(8{,}35\) juta penduduk</li>
+        <li>(B) \(9{,}50\) juta penduduk</li>
+        <li>(C) \(10{,}25\) juta penduduk</li>
+        <li>(D) \(12{,}85\) juta penduduk</li>
+        <li>(E) \(14{,}65\) juta penduduk</li>
+      </ul>
+    </div>
+  </div>
+  <hr class="divider">
+
+  <div class="soal">
+    <div class="soal-head"><span class="soal-no">16.</span></div>
+    <div class="soal-body">
+      <p>Berdasarkan data tersebut, manakah pernyataan yang <b>KURANG TEPAT</b>?</p>
+      <ul class="opsi">
+        <li>(A) Pulau Maluku dan Papua menjadi wilayah dengan persentase pengguna Smartphone paling sedikit.</li>
+        <li>(B) Pulau Sulawesi, Bali, dan Nusa Tenggara memiliki persentase pengguna Smartphone yang sama.</li>
+        <li>(C) Persentase pengguna Smartphone paling banyak terdapat di Pulau Jawa dan Sumatera.</li>
+        <li>(D) Kalimantan menjadi pulau dengan persentase pengguna Smartphone terbesar ketiga.</li>
+        <li>(E) Sulawesi menjadi pulau dengan persentase pengguna Smartphone yang hanya lebih besar dari Maluku dan Papua.</li>
+      </ul>
+    </div>
+  </div>
+
+  <footer>
+    &mdash; Selamat Mengerjakan &mdash;<br>
+  </footer>
+
+</div>
+</body>
+</html>
